@@ -1,9 +1,12 @@
 import React from 'react';
+import FlavorList from './FlavorList';
+import FlavorsSummary from './FlavorsSummary';
 
-const ExpenseDashboardPage = () => (
-  <div className="content-container">
-    <h1>DASHBOARD PAGE CONTENT GOES HERE</h1>
+const DashboardPage = () => (
+  <div>
+    <FlavorsSummary />
+    <FlavorList />
   </div>
 );
 
-export default ExpenseDashboardPage;
+export default DashboardPage;

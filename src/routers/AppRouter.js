@@ -2,6 +2,8 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import DashboardPage from '../components/DashboardPage';
+import AddFlavorPage from '../components/AddFlavorPage';
+import EditFlavorPage from '../components/EditFlavorPage';
 import LoginPage from '../components/LoginPage';
 import NotFoundPage from '../components/NotFoundPage';
 import PrivateRoute from './PrivateRoute';
@@ -15,6 +17,8 @@ const AppRouter = () => (
 			<Switch>
 				<PublicRoute path="/" component={LoginPage} exact={true} />
 				<PrivateRoute path="/dashboard" component={DashboardPage} />
+				<PrivateRoute path="/create" component={AddFlavorPage} />
+				<PrivateRoute path="/edit/:id" component={EditFlavorPage} />
 				<Route component={NotFoundPage} />
 			</Switch>
 		</div>
