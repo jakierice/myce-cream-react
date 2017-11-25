@@ -24,6 +24,23 @@ button:disabled {
   cursor: default;
 }
 
+.main {
+  margin-top: 10rem;
+}
+
 .is-active {
   font-weight: bold;
+}
+
+/* scroll bars */
+::-webkit-scrollbar {
+	 display: none;
+}
+
+::-webkit-scrollbar-track {
+	 display: none;
+}
+
+::-webkit-scrollbar-thumb {
+	 display: none;
 }

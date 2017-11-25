@@ -10,6 +10,7 @@ export class EditFlavorPage extends React.Component {
 	};
 	onRemove = () => {
 		this.props.startRemoveFlavor({ id: this.props.flavor.id });
+		this.props.history.push('/');
 	};
 	render() {
 		return (

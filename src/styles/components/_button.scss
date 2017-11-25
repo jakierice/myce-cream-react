@@ -1,6 +1,7 @@
 .button {
-	background: $blue;	
+	background: $orange;	
 	border: none;
+	box-shadow: 1px 2px 8px $dark-grey;
 	color: white;
 	display: inline-block;
 	font-size: $font-size-large;

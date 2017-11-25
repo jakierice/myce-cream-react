@@ -10,7 +10,7 @@ export default class ExpenseForm extends React.Component {
 			name: props.flavor ? props.flavor.name : '',
 			note: props.flavor ? props.flavor.note : '',
 			retailer: props.flavor ? props.flavor.retailer : '',
-			tasted: props.flavor ? props.flavor.tasted : false, // createdAt: props.flavor ? moment(props.flavor.createdAt) : moment(),
+			tasted: props.flavor ? props.flavor.tasted : false,
 			tastedAt: props.flavor ? moment(props.flavor.tastedAt) : moment(),
 			rating: props.flavor ? props.flavor.rating : undefined,
 			calendarFocused: false,
@@ -72,6 +72,7 @@ export default class ExpenseForm extends React.Component {
 				note: this.state.note,
 				retailer: this.state.retailer,
 				tasted: this.state.tasted,
+				tastedAt: this.state.tasted ? this.state.tastedAt.valueOf() : '',
 				rating: this.state.rating
 			});
 		}
@@ -95,24 +96,8 @@ export default class ExpenseForm extends React.Component {
 					value={this.state.retailer}
 					onChange={this.onRetailerChange}
 				/>
-				<div className="input-group">
-					<SingleDatePicker
-						date={this.state.tastedAt}
-						onDateChange={
-							this.onDateChange // momentPropTypes.momentObj or null
-						}
-						focused={
-							this.state.calendarFocused // PropTypes.func.isRequired
-						}
-						onFocusChange={
-							this.onFocusChange // PropTypes.bool
-						}
-						numberOfMonths={
-							1 // PropTypes.func.isRequired
-						}
-						isOutsideRange={day => false}
-					/>
-					<div className="input-group__item">
+				<div className="tasted-input">
+					<div>
 						<label htmlFor="tasted">
 							<span>TASTED? </span>
 						</label>
@@ -123,22 +108,43 @@ export default class ExpenseForm extends React.Component {
 							onChange={this.onTastedChange}
 						/>
 					</div>
-					<div className="input-group__item">
-						{this.state.tasted ? (
-							<div>
-								<span>Rating</span>
-								<input
-									type="number"
-									className="text-input"
-									value={this.state.rating}
-									onChange={this.onRatingChange}
+					{this.state.tasted ? (
+						<div className="input-group input-group--tasted">
+							<div className="input-group__item">
+								<SingleDatePicker
+									date={this.state.tastedAt}
+									onDateChange={
+										this.onDateChange // momentPropTypes.momentObj or null
+									}
+									focused={
+										this.state.calendarFocused // PropTypes.func.isRequired
+									}
+									onFocusChange={
+										this.onFocusChange // PropTypes.bool
+									}
+									numberOfMonths={
+										1 // PropTypes.func.isRequired
+									}
+									isOutsideRange={day => false}
 								/>
 							</div>
-						) : (
-							<p>Rate after tasting!</p>
-						)}
-					</div>
+							<div className="input-group__item">
+								<div>
+									<span>Rating</span>
+									<input
+										type="number"
+										className="number"
+										value={this.state.rating}
+										onChange={this.onRatingChange}
+									/>
+								</div>
+							</div>
+						</div>
+					) : (
+						<h3>You can rate this flavor after you have tasted it!</h3>
+					)}
 				</div>
+
 				<div>
 					<button className="button">Save Flavor</button>
 				</div>

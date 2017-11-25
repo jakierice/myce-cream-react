@@ -1,5 +1,10 @@
 .header {
-	background: $dark-blue;
+	background: $dark-grey;
+	border-bottom: 3px solid white;
+	height: 10rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
 }
 
 .header__content {
@@ -11,7 +16,12 @@
 
 .header__title {
 	color: white;
+	font-family: $font-display;
+	font-size: 4rem;
+	font-style: normal;
+	font-weight: 400;
 	text-decoration: none;
+	text-shadow: 0 0 3px black;
 	h1 {
 		margin: 0;
 	}

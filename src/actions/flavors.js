@@ -1,7 +1,8 @@
 import db from '../firebase/firebase';
+import moment from 'moment';
 
 export const addFlavor = flavor => ({
-	type: 'SET_FLAVORS',
+	type: 'ADD_FLAVOR',
 	flavor
 });
 
@@ -13,14 +14,12 @@ export const startAddFlavor = (flavorData = {}) => {
 			note = '',
 			retailer = '',
 			tasted = false,
-			createdAt = 0,
+			createdAt = moment().valueOf(),
 			tastedAt = 0,
 			rating = 0
 		} = flavorData;
 
-		const flavor = { name, note, retailer, tasted, rating };
-
-		console.log(flavor);
+		const flavor = { name, note, retailer, tasted, createdAt, tastedAt, rating };
 
 		return db
 			.collection('users')

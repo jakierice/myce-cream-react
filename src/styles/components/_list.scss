@@ -1,10 +1,13 @@
 .list-header {
-	background: $off-white;
+	background: $orange;
 	border: 1px solid darken($off-white, 7%);
-	color: $grey;
+	color: white;
 	display: flex;
+	font-family: $font-cursive;
+	font-size: $l-size;
 	justify-content: space-between;
 	padding: $s-size $m-size;
+	text-shadow: 0 0 1px black;
 }
 
 .list-body {
@@ -24,7 +27,7 @@
 	text-decoration: none;
 	transition: background .3s ease;
 	&:hover {
-		background: $off-white;
+		background: $khaki;
 	}
 	@media (min-width: $desktop-breakpoint) {
 		align-items: center;

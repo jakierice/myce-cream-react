@@ -8,7 +8,7 @@ export const Header = ({ startLogout }) => (
 		<div className="content-container">
 			<div className="header__content">
 				<Link className="header__title" to="/dashboard">
-					<h1>Myce Cream</h1>
+					<span>Myce Cream</span>
 				</Link>
 				<button className="button button--link" onClick={startLogout}>
 					Logout
