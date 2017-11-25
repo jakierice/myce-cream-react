@@ -7,7 +7,9 @@ const FlavorListItem = ({ id, name, tasted, retailer, note, rating }) => (
 			<h2 className="list-item__title">{name}</h2>
 			<span className="list-item__sub-title">{retailer}</span>
 		</div>
-		<h3 className="list-item__data">{tasted ? 'TASTED' : 'NEED TO TASTE'}</h3>
+		<div>
+			<h3 className="list-item__data">{rating ? rating : tasted ? 'NEEDS RATING' : 'NEED TO TASTE'}</h3>
+		</div>
 	</Link>
 );
 

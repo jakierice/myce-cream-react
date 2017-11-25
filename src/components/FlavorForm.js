@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
 
 export default class ExpenseForm extends React.Component {
 	constructor(props) {
@@ -9,10 +10,10 @@ export default class ExpenseForm extends React.Component {
 			name: props.flavor ? props.flavor.name : '',
 			note: props.flavor ? props.flavor.note : '',
 			retailer: props.flavor ? props.flavor.retailer : '',
-			tasted: props.flavor ? props.flavor.tasted : false,
-			// createdAt: props.flavor ? moment(props.flavor.createdAt) : moment(),
-			// tastedAt: props.flavor ? moment(props.flavor.tastedAt) : moment(),
+			tasted: props.flavor ? props.flavor.tasted : false, // createdAt: props.flavor ? moment(props.flavor.createdAt) : moment(),
+			tastedAt: props.flavor ? moment(props.flavor.tastedAt) : moment(),
 			rating: props.flavor ? props.flavor.rating : undefined,
+			calendarFocused: false,
 			error: ''
 		};
 	}
@@ -31,15 +32,30 @@ export default class ExpenseForm extends React.Component {
 	onTastedChange = e => {
 		const tasted = e.target.checked;
 		this.setState(() => ({ tasted }));
-		console.log(this.state.tasted);
+
+		if (!tasted) {
+			this.setState(() => ({ rating: 0 }));
+		}
+	};
+	onDateChange = tastedAt => {
+		if (tastedAt) {
+			this.setState(() => ({ tastedAt }));
+		}
+	};
+	onFocusChange = ({ focused }) => {
+		this.setState(() => ({
+			calendarFocused: focused
+		}));
 	};
 	onRatingChange = e => {
-		const rating = e.target.value;
+		const rating = parseInt(e.target.value);
 
 		if (rating >= 0 && rating <= 10) {
 			this.setState(() => ({ rating }));
 		} else {
-			this.setState(() => ({ error: 'Rating must be between 1 and 10' }));
+			this.setState(() => ({
+				error: 'Rating must be between 1 and 10'
+			}));
 		}
 	};
 	onSubmit = e => {
@@ -80,6 +96,22 @@ export default class ExpenseForm extends React.Component {
 					onChange={this.onRetailerChange}
 				/>
 				<div className="input-group">
+					<SingleDatePicker
+						date={this.state.tastedAt}
+						onDateChange={
+							this.onDateChange // momentPropTypes.momentObj or null
+						}
+						focused={
+							this.state.calendarFocused // PropTypes.func.isRequired
+						}
+						onFocusChange={
+							this.onFocusChange // PropTypes.bool
+						}
+						numberOfMonths={
+							1 // PropTypes.func.isRequired
+						}
+						isOutsideRange={day => false}
+					/>
 					<div className="input-group__item">
 						<label htmlFor="tasted">
 							<span>TASTED? </span>

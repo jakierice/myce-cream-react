@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FlavorListItem from './FlavorListItem';
+import selectFlavors from '../selectors/flavors';
 
 const FlavorList = props => (
 	<div className="content-container">
@@ -24,7 +25,7 @@ const FlavorList = props => (
 );
 
 const mapStateToProps = state => ({
-	flavors: state.flavors
+	flavors: selectFlavors(state.flavors, state.filters)
 });
 
 export default connect(mapStateToProps)(FlavorList);
