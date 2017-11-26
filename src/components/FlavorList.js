@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import FlavorListItem from './FlavorListItem';
 import selectFlavors from '../selectors/flavors';
 
@@ -13,7 +14,10 @@ const FlavorList = props => (
 		<div className="list-body">
 			{props.flavors.length === 0 ? (
 				<div className="list-item list-item--message">
-					<span>No flavors yet!</span>
+					<h3>No flavors yet!</h3 >
+					<Link to="/create" className="button">
+						Add Flavor
+					</Link>
 				</div>
 			) : (
 				props.flavors.map(flavor => {

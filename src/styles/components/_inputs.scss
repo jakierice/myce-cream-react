@@ -23,3 +23,41 @@
 .nav .select {
 	width: 100%;
 }
+
+.tasted-checkbox-label {
+	color: white;
+	font-family: $font-cursive;
+	font-size: $l-size;
+	text-shadow: 0 0 1px black;
+}
+
+.tasted-checkbox {
+	align-items: center;
+	background: white;
+	border: 4px solid $dark-grey;
+	border-radius: 98%;
+	// box-shadow: 2px 2px 7px $grey;
+	cursor: pointer;
+	display: flex;
+	height: 6rem;
+	justify-content: center;
+	transition: 0.3s ease;
+	width: 6rem;
+
+	&:hover {
+		height: 7rem;
+		width: 7rem;
+
+	}
+}
+
+.tasted-checkbox--unchecked {
+	opacity: 0.5;
+}
+
+.checkmark {
+	filter: url(#drop-shadow);
+	-webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+	filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+	width: 3.6rem;	
+}

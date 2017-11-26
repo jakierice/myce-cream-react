@@ -10,7 +10,6 @@ const FlavorListItem = ({ id, name, tasted, retailer, note, rating }) => (
 		<div>
 			<h3
 				className={
-					'list-item__data ' +
 					(rating ? 'list-item__data-rating' : 'list-item__data-status')
 				}
 			>

@@ -26,6 +26,7 @@ export class FlavorListFilters extends React.Component {
 		return (
 			<div className="input-group input-group--filters">
 				<div className="input-group__item">
+					<label htmlFor="search-flavors" className="input-group__item-label">Search</label>
 					<input
 						type="text"
 						className="text-input"
@@ -35,7 +36,7 @@ export class FlavorListFilters extends React.Component {
 					/>
 				</div>
 				<div className="input-group__item">
-					{' '}
+					<label htmlFor="sort-flavors" className="input-group__item-label">Sort By</label>{' '}
 					<select
 						className="select"
 						value={this.props.filters.sortBy}

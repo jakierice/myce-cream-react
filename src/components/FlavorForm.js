@@ -11,7 +11,7 @@ export default class ExpenseForm extends React.Component {
 			note: props.flavor ? props.flavor.note : '',
 			retailer: props.flavor ? props.flavor.retailer : '',
 			tasted: props.flavor ? props.flavor.tasted : false,
-			tastedAt: props.flavor.tastedAt ? moment(props.flavor.tastedAt) : moment(),
+			tastedAt: props.flavor ? moment(props.flavor.tastedAt) : moment(),
 			rating: props.flavor ? props.flavor.rating : undefined,
 			calendarFocused: false,
 			error: ''
@@ -30,8 +30,8 @@ export default class ExpenseForm extends React.Component {
 		this.setState(() => ({ retailer }));
 	};
 	onTastedChange = e => {
-		const tasted = e.target.checked;
-		this.setState(() => ({ tasted }));
+		const tasted = this.state.tasted;
+		this.setState(() => ({ tasted: !tasted }));
 
 		if (!tasted) {
 			this.setState(() => ({ rating: 0 }));
@@ -81,36 +81,49 @@ export default class ExpenseForm extends React.Component {
 		return (
 			<form className="form" onSubmit={this.onSubmit}>
 				{this.state.error && <p className="form__error">{this.state.error}</p>}
-				<input
-					type="text"
-					placeholder="Flavor Name"
-					autoFocus
-					className="text-input"
-					value={this.state.name}
-					onChange={this.onNameChange}
-				/>
-				<input
-					type="text"
-					placeholder="Retailer"
-					className="text-input"
-					value={this.state.retailer}
-					onChange={this.onRetailerChange}
-				/>
-				<div className="tasted-input">
-					<div>
-						<label htmlFor="tasted">
-							<span>TASTED? </span>
-						</label>
+				<div className="input-group">
+					<div className="input-group__item">
+						<h3 className="input-group__item-label">Flavor Name</h3>
 						<input
-							type="checkbox"
-							value="tasted"
-							checked={this.state.tasted}
-							onChange={this.onTastedChange}
+							type="text"
+							placeholder="Flavor Name"
+							autoFocus
+							className="text-input"
+							value={this.state.name}
+							onChange={this.onNameChange}
 						/>
 					</div>
+					<div className="input-group__item">
+						<h3 className="input-group__item-label">Retailer</h3>
+						<input
+							type="text"
+							placeholder="Retailer"
+							className="text-input"
+							value={this.state.retailer}
+							onChange={this.onRetailerChange}
+						/>
+					</div>
+				</div>
+				<div className="tasted-form-section">
+					<div className="tasted-input">
+						<h3 className="tasted-checkbox-label">Tasted?</h3>
+						<div
+							className={
+								'tasted-checkbox ' +
+								(this.state.tasted
+									? 'tasted-checkbox--checked'
+									: 'tasted-checkbox--unchecked')
+							}
+							onClick={this.onTastedChange}
+						>
+							<img src="/images/checkmark.png" className="checkmark" alt="" />
+						</div>
+					</div>
+
 					{this.state.tasted ? (
 						<div className="input-group input-group--tasted">
 							<div className="input-group__item">
+								<h3 className="input-group__item-label">Tasted On</h3>
 								<SingleDatePicker
 									date={this.state.tastedAt}
 									onDateChange={
@@ -129,19 +142,17 @@ export default class ExpenseForm extends React.Component {
 								/>
 							</div>
 							<div className="input-group__item">
-								<div>
-									<span>Rating</span>
-									<input
-										type="number"
-										className="number"
-										value={this.state.rating}
-										onChange={this.onRatingChange}
-									/>
-								</div>
+								<h3 className="input-group__item-label">Rating</h3>
+								<input
+									type="number"
+									className="number"
+									value={this.state.rating}
+									onChange={this.onRatingChange}
+								/>
 							</div>
 						</div>
 					) : (
-						<h3>You can rate this flavor after you have tasted it!</h3>
+						<h3 className="input-group__error">You can rate this flavor after you have tasted it!</h3>
 					)}
 				</div>
 

@@ -47,6 +47,8 @@
 .list-item--message {
 	align-items: center;
 	color: $grey;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	padding: $m-size;
 	&:hover {
@@ -73,11 +75,17 @@
 }
 
 .list-item__data-rating {
-	align-content: center;
+	align-items: center;
 	background: $orange;
 	border-radius: 98%;
 	color: white;
 	display: flex;
+	height: $xl-size;
 	justify-content: center;
 	text-shadow: 0 0 1px black;
+	width: $xl-size;
+
+	@media (max-width: $desktop-breakpoint) {
+
+	}
 }

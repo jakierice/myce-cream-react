@@ -9,6 +9,7 @@
 	transition: 0.3s;
 	text-shadow: 0 0 9px black;
 	width: 10rem;
+	z-index: 5000;
 
 	&:hover {
 		transform: rotateZ(0deg);

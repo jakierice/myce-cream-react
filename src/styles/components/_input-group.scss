@@ -1,7 +1,7 @@
 .input-group {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 	margin-bottom: $m-size;
 
 	@media (min-width: $desktop-breakpoint) {
@@ -10,24 +10,53 @@
 	}
 }
 
-.input-group--filters {
-	flex-direction: column;
-}
-
-.tasted-input {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
 .input-group__item {
 	align-items: center;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	margin-bottom: $s-size;
 	padding: $s-size 0;
 	@media (min-width: $desktop-breakpoint) {
 		// margin: 0 $s-size 0 0;
 	}
+}
+
+.input-group__item-label {
+	color: $orange;
+	font-family: $font-cursive;
+	font-size: $l-size;
+}
+
+.input-group__error {
+	color: $grey;
+}
+
+.input-group--filters {
+	flex-direction: column;
+}
+
+.tasted-form-section {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.input-group--tasted {
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	transition: 0.3s ease;
+	width: 100%;
+}
+
+.tasted-input {
+	align-items: center;
+	background: $orange;
+	display: flex;
+	height: 8rem;
+	justify-content: space-between;
+	padding: 0 $l-size;
+	width: 100%;
 }
