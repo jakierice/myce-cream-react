@@ -1,6 +1,6 @@
 .list-header {
 	background: $orange;
-	border: 1px solid darken($off-white, 7%);
+	// border: 1px solid darken($off-white, 7%);
 	color: white;
 	display: flex;
 	font-family: $font-cursive;
@@ -8,6 +8,7 @@
 	justify-content: space-between;
 	padding: $s-size $m-size;
 	text-shadow: 0 0 1px black;
+	box-shadow: 2px 5px 12px $grey;
 }
 
 .list-body {
@@ -18,14 +19,16 @@
 }
 
 .list-item {
-	border: 1px solid darken($off-white, 7%);
-	border-top: none;
+	// border: 1px solid darken($off-white, 7%);
+	// border-top: none;
 	color: $dark-grey;
 	display: flex;
 	flex-direction: column;
+	margin: $m-size 0;
 	padding: $s-size;
 	text-decoration: none;
-	transition: background .3s ease;
+	transition: 0.3s ease;
+	box-shadow: 2px 5px 12px $grey;
 	&:hover {
 		background: $khaki;
 	}
@@ -34,6 +37,10 @@
 		flex-direction: row;
 		justify-content: space-between;
 		padding: $m-size;
+
+		&:hover {
+			padding: $l-size $m-size;
+		}
 	}
 }
 
@@ -63,4 +70,14 @@
 		margin: 0;
 		padding-left: $s-size;
 	}
+}
+
+.list-item__data-rating {
+	align-content: center;
+	background: $orange;
+	border-radius: 98%;
+	color: white;
+	display: flex;
+	justify-content: center;
+	text-shadow: 0 0 1px black;
 }

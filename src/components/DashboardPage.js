@@ -6,7 +6,6 @@ import FlavorListFilters from './FlavorListFilters';
 const DashboardPage = () => (
 	<div>
 		<FlavorsSummary />
-		<FlavorListFilters />
 		<FlavorList />
 	</div>
 );

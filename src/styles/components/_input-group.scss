@@ -10,6 +10,10 @@
 	}
 }
 
+.input-group--filters {
+	flex-direction: column;
+}
+
 .tasted-input {
 	align-items: center;
 	display: flex;
@@ -22,7 +26,7 @@
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: $s-size;
-	padding: $s-size;
+	padding: $s-size 0;
 	@media (min-width: $desktop-breakpoint) {
 		// margin: 0 $s-size 0 0;
 	}

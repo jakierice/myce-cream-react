@@ -1,25 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { startLogout } from '../actions/auth';
 
-export const Header = ({ startLogout }) => (
+export const Header = ({userPhoto, displayName}) => (
 	<header className="header">
-		<div className="content-container">
 			<div className="header__content">
 				<Link className="header__title" to="/dashboard">
 					<span>Myce Cream</span>
 				</Link>
-				<button className="button button--link" onClick={startLogout}>
-					Logout
-				</button>
+				<div className="header__user-info">
+					<h3 className="header__user-name">{displayName}</h3>
+					<img src={userPhoto} alt="" className="header__user-photo" />
+				</div>
 			</div>
-		</div>
 	</header>
 );
 
-const mapDispatchToProps = dispatch => ({
-	startLogout: () => dispatch(startLogout())
-});
+const mapStateToProps = (state) => ({
+	userPhoto: state.auth.photo,
+	displayName: state.auth.displayName
+})
 
-export default connect(undefined, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

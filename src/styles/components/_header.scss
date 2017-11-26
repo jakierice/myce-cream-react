@@ -1,17 +1,25 @@
 .header {
 	background: $dark-grey;
-	border-bottom: 3px solid white;
-	height: 10rem;
+	height: 20rem;
 	position: fixed;
 	top: 0;
 	width: 100%;
+
+	@media (min-width: $desktop-breakpoint) {
+		height: 10rem;
+	}
 }
 
 .header__content {
 	align-items: center;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	padding: $s-size 0;
+	padding: $m-size 0;
+
+	@media (min-width: $desktop-breakpoint) {
+		flex-direction: row;
+	}
 }
 
 .header__title {
@@ -20,9 +28,29 @@
 	font-size: 4rem;
 	font-style: normal;
 	font-weight: 400;
+	margin: 0 $m-size;
 	text-decoration: none;
 	text-shadow: 0 0 3px black;
 	h1 {
 		margin: 0;
 	}
+}
+
+.header__user-info {
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.header__user-name {
+	color: white;
+	font-family: $font-cursive;
+	text-shadow: 0 0 3px black;
+}
+
+.header__user-photo {
+	border: 2px solid white;
+	border-radius: 98%;
+	margin: 0 $s-size;
+	width: 7rem;
 }

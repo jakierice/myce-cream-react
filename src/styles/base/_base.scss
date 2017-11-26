@@ -2,45 +2,58 @@
 
 // Base styling for React app
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-  // background: $dark-grey;
-  font-family: $font-normal, Arial, sans-serif;
-  font-size: $m-size;
-  line-height: 1.6;
+	// background: $dark-grey;
+	font-family: $font-normal, Arial, sans-serif;
+	font-size: $m-size;
+	line-height: 1.6;
 }
 
 button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 button:disabled {
-  cursor: default;
+	cursor: default;
 }
 
 .main {
-  margin-top: 10rem;
+	left: 0;
+	// margin-top: 10rem;
+	position: absolute;
+	top: 20rem;
+	transition: 0.3s;
+	width: 100%;
+
+	&.open {
+		left: 30rem;
+	}
+
+	@media (min-width: $desktop-breakpoint) {
+		top: 10rem;
+	}
 }
 
 .is-active {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 /* scroll bars */
 ::-webkit-scrollbar {
-	 display: none;
+	display: none;
 }
 
 ::-webkit-scrollbar-track {
-	 display: none;
+	display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-	 display: none;
+	display: none;
 }

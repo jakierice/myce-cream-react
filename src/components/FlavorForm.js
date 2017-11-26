@@ -11,7 +11,7 @@ export default class ExpenseForm extends React.Component {
 			note: props.flavor ? props.flavor.note : '',
 			retailer: props.flavor ? props.flavor.retailer : '',
 			tasted: props.flavor ? props.flavor.tasted : false,
-			tastedAt: props.flavor ? moment(props.flavor.tastedAt) : moment(),
+			tastedAt: props.flavor.tastedAt ? moment(props.flavor.tastedAt) : moment(),
 			rating: props.flavor ? props.flavor.rating : undefined,
 			calendarFocused: false,
 			error: ''
