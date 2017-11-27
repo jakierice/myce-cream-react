@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-// require('firebase/firestore');
+require('firebase/firestore');
 
 // Initialize Firebase
 const config = {
