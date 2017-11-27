@@ -11,10 +11,12 @@ export const Nav = props => (
 			<span>x</span>
 		</a>
 		<FlavorListFilters className="nav-item" />
+
+		<h2 className="nav__or-tag">OR</h2>
 		<Link className="button nav-item" to="/create" onClick={props.toggleMenu}>
 			Add Flavor
 		</Link>
-		<button className="button button--logout" onClick={props.startLogout}>
+		<button className="button button--link button--logout" onClick={props.startLogout}>
 			Logout
 		</button>
 	</div>

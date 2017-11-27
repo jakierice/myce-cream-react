@@ -2,7 +2,6 @@
 	align-items: center;
 	background: $khaki;
 	border-right: 3px solid $dark-grey;
-	box-shadow: 2px 0 13px #888;
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -10,9 +9,9 @@
 	left: 0;
 	padding: 0 $s-size;
 	position: fixed;
-	top: 20rem;
+	top: 0;
 	transition: 0.4s ease-in-out;
-	width: 30rem;
+	width: 100vw;
 	z-index: 1000;
 
 	&.open {
@@ -20,11 +19,17 @@
 	}
 
 	&.closed {
-		left: -30rem;
+		left: -100vw;
 	}
 
 	@media (min-width: $desktop-breakpoint) {
 		top: 10rem;
+		width: 30rem;
+		box-shadow: 2px 0 13px #888;
+
+		&.closed {
+			left: -30rem;
+		}
 	}
 }
 
@@ -38,4 +43,12 @@
 	&:hover {
 		cursor: pointer;
 	}
+}
+
+.nav__or-tag {
+	color: $dark-grey;
+	font-family: $font-display;
+	font-size: 6rem;
+	margin: 0;
+	text-align: center;
 }

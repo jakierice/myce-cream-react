@@ -72,7 +72,7 @@ export default class ExpenseForm extends React.Component {
 				note: this.state.note,
 				retailer: this.state.retailer,
 				tasted: this.state.tasted,
-				tastedAt: this.state.tasted ? this.state.tastedAt.valueOf() : '',
+				tastedAt: this.state.tastedAt.valueOf(),
 				rating: this.state.rating
 			});
 		}
