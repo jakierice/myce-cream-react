@@ -9,14 +9,24 @@
 }
 
 .box-layout__box {
-	background: fade-out(white, .15);
+	background: fade-out($khaki, .15);
 	border-radius: 3px;
 	padding: $l-size $m-size;
 	text-align: center;
-	width: 25rem;
+	width: 35rem;
 }
 
 .box-layout__title {
+	color: $dark-grey;
+	font-family: $font-display;
+	font-size: 5rem;
 	line-height: 1;
 	margin: 0 0 $m-size 0;
+}
+
+.box-layout__tagline {
+	color: white;	
+	font-family: $font-cursive;
+	font-size: 3rem;
+	text-shadow: 0 0 10px black;
 }
