@@ -10,15 +10,20 @@ export const Nav = props => (
 		<a onClick={props.toggleMenu} className="nav-close">
 			<span>x</span>
 		</a>
-		<FlavorListFilters className="nav-item" />
+		<div className="nav__wrapper">
+			<FlavorListFilters className="nav-item" />
 
-		<h2 className="nav__or-tag">OR</h2>
-		<Link className="button nav-item" to="/create" onClick={props.toggleMenu}>
-			Add Flavor
-		</Link>
-		<button className="button button--link button--logout" onClick={props.startLogout}>
-			Logout
-		</button>
+			<h2 className="nav__or-tag">OR</h2>
+			<Link className="button nav-item" to="/create" onClick={props.toggleMenu}>
+				Add Flavor
+			</Link>
+			<button
+				className="button button--link button--logout"
+				onClick={props.startLogout}
+			>
+				Logout
+			</button>
+		</div>
 	</div>
 );
 

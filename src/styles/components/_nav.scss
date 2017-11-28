@@ -8,7 +8,8 @@
 	justify-content: flex-start;
 	left: 0;
 	padding: 0 $s-size;
-	position: absolute;
+	position: fixed;
+	overflow-y: hidden;
 	top: 0;
 	transition: 0.4s ease-in-out;
 	width: 100vw;
@@ -31,6 +32,14 @@
 			left: -30rem;
 		}
 	}
+}
+
+.nav__wrapper {
+	align-items: center; 
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 75rem;
 }
 
 .nav-close {
