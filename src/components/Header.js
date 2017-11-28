@@ -8,7 +8,7 @@ export const Header = ({userPhoto, displayName}) => (
 				<Link className="header__title" to="/dashboard">
 					<span>Myce Cream</span>
 				</Link>
-				<div className="header__user-info">
+				<div className="header__user-info show-for-desktop">
 					<h3 className="header__user-name">{displayName}</h3>
 					<img src={userPhoto} alt="" className="header__user-photo" />
 				</div>

@@ -1,7 +1,12 @@
 .page-header {
 	background: $khaki;
-	margin-bottom: $l-size;
-	padding: $l-size 0;
+	margin-bottom: $m-size;
+	padding: $s-size 0;
+
+	@media (min-width: $desktop-breakpoint) {
+		margin-bottom: $l-size;
+		padding: $l-size 0;
+	}
 }
 
 .page-header__actions {
@@ -10,9 +15,13 @@
 
 .page-header__title {
 	color: $dark-grey;
+	font-size: 2rem;
 	font-weight: 300;
 	margin: 0;
 	span {
 		font-weight: bold;
+	}
+
+	@media (min-width: $desktop-breakpoint) {
 	}
 }
