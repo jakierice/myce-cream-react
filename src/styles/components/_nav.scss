@@ -4,7 +4,7 @@
 	border-right: 3px solid $dark-grey;
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100rem;
 	justify-content: flex-start;
 	left: 0;
 	padding: 0 $s-size;
@@ -38,7 +38,7 @@
 	align-items: center; 
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: flex-start;
 	height: 75rem;
 }
 
